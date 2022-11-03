@@ -1,13 +1,35 @@
 import { Link, useMatch } from "react-router-dom";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useScroll } from "framer-motion";
+import { useEffect } from "react";
+
+const navVariants = {
+  up: {
+    backgroundColor: "rgba(0,0,0,1)",
+  },
+  scroll: {
+    backgroundColor: "rgba(0,0,0,0)",
+  },
+};
 
 function Header() {
   const homeMatch = useMatch("/");
   const tvMatch = useMatch("/tv");
-  console.log(homeMatch, tvMatch);
+  const { scrollY } = useScroll();
+  const navAnimation = useAnimation();
+
+  useEffect(() => {
+    scrollY.onChange(() => {
+      if (scrollY.get() > 80) {
+        navAnimation.start("scroll");
+      } else {
+        navAnimation.start("up");
+      }
+    });
+  }, [scrollY, navAnimation]); // scrollY의 값을 알아보기 위함
+
   return (
-    <Nav>
+    <Nav variants={navVariants} animate={navAnimation} initial={"up"}>
       <Container>
         <Logo
           xmlns="http://www.w3.org/2000/svg"
@@ -60,8 +82,10 @@ function Header() {
 
 export default Header;
 
-const Nav = styled.nav`
+const Nav = styled(motion.nav)`
   display: flex;
+  position: fixed;
+  width: 100%;
   justify-content: space-between;
   font-size: 14px;
 `;
