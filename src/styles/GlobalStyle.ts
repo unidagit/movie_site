@@ -32,6 +32,7 @@ footer, header, hgroup, main, menu, nav, section {
     display: none;
 }
 body {
+
   line-height: 1;
 
 }
@@ -55,7 +56,7 @@ table {
 }
 body {
   font-weight: 300;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Pretendard", sans-serif;
   color:${(props) => props.theme.white.darker};
   line-height: 1.2;
   background-color: black;
@@ -64,6 +65,13 @@ body {
 a {
   text-decoration:none;
   color:inherit;
+}
+	input, button {
+		font-family: "Pretendard", sans-serif;
+	}
+
+  img {
+  max-width: 100%;
 }
 `;
 

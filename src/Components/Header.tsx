@@ -5,10 +5,10 @@ import { useEffect } from "react";
 
 const navVariants = {
   up: {
-    backgroundColor: "rgba(0,0,0,1)",
+    backgroundColor: "rgba(0,0,0,0)",
   },
   scroll: {
-    backgroundColor: "rgba(0,0,0,0)",
+    backgroundColor: "rgba(0,0,0,1)",
   },
 };
 
