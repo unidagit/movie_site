@@ -86,10 +86,10 @@ function MovieSlider({ data, title }: ISlider) {
     navigate(`/movies/${movieId}`);
   };
 
-  const clickedMovie =
-    bigMovieMatch?.params.movieId &&
-    data?.find((movie) => movie.id + "" === bigMovieMatch.params.movieId);
-  console.log(clickedMovie);
+  // const clickedMovie =
+  //   bigMovieMatch?.params.movieId &&
+  //   data?.find((movie) => movie.id + "" === bigMovieMatch.params.movieId);
+  // console.log(clickedMovie);
 
   return (
     <>
@@ -145,7 +145,7 @@ function MovieSlider({ data, title }: ISlider) {
             </AnimatePresence>
           </Slider>
           {/* {bigMovieMatch ? <MovieCard clickedMovie={clickedMovie} /> : null} */}
-          {bigMovieMatch ? <MovieCard clickedMovie={clickedMovie} /> : null}
+          {bigMovieMatch ? <MovieCard /> : null}
         </Wrapper>
       )}
     </>
@@ -207,10 +207,9 @@ const LeftButton = styled.button`
   position: absolute;
   top: 0;
   left: 0;
-  width: 30px;
+  width: 40px;
   height: 150px;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 10;
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
     svg {
@@ -223,10 +222,9 @@ const RightButton = styled.button`
   position: absolute;
   top: 0;
   right: 0;
-  width: 30px;
+  width: 40px;
   height: 152px;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 10;
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
     svg {
