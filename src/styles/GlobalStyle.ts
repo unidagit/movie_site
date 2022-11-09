@@ -60,7 +60,8 @@ body {
   color:${(props) => props.theme.white.darker};
   line-height: 1.2;
   background-color: black;
-  
+  overflow-x:hidden; 
+  overflow-y:auto;
 }
 a {
   text-decoration:none;
