@@ -142,6 +142,20 @@ export interface IShowDetail {
   vote_count: number;
 }
 
+export interface IGetMovieSearch {
+  page: number;
+  results: IMovie[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface IGetTvSearch {
+  page: number;
+  results: IShow[];
+  total_pages: number;
+  total_results: number;
+}
+
 export function getMovies() {
   return fetch(
     `${BASE_PATH}/movie/now_playing?api_key=${API_KEY}&language=ko-KR&page=1`
@@ -188,5 +202,18 @@ export function getTopRatedShows() {
 export function getPopularShows() {
   return fetch(
     `${BASE_PATH}/tv/popular?api_key=${API_KEY}&language=${LANGUAGE}&page=1&region=kr`
+  ).then((response) => response.json());
+}
+
+//검색api
+export function getMovieSearchResults(keyword: string) {
+  return fetch(
+    `${BASE_PATH}/search/movie?api_key=${API_KEY}&language=${LANGUAGE}&query=${keyword}&page=1&include_adult=false`
+  ).then((response) => response.json());
+}
+
+export function getTvSearchResults(keyword: string) {
+  return fetch(
+    `${BASE_PATH}/search/tv?api_key=${API_KEY}&language=${LANGUAGE}&query=${keyword}&page=1&include_adult=false`
   ).then((response) => response.json());
 }

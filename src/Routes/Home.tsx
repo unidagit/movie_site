@@ -28,11 +28,11 @@ function Home() {
         <>
           <Banner
             bgPhoto={makeImagePath(
-              nowplayingData?.results[11].backdrop_path || ""
+              nowplayingData?.results[2].backdrop_path || ""
             )}
           >
-            <Title>{nowplayingData?.results[11].title}</Title>
-            <Overview>{nowplayingData?.results[11].overview}</Overview>
+            <Title>{nowplayingData?.results[2].title}</Title>
+            <Overview>{nowplayingData?.results[2].overview}</Overview>
             <BannerButton>상세정보</BannerButton>
           </Banner>
           <Sliders>

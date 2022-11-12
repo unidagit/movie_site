@@ -28,11 +28,11 @@ function Tv() {
         <>
           <Banner
             bgPhoto={makeImagePath(
-              nowplayingDataTv?.results[0].backdrop_path || ""
+              nowplayingDataTv?.results[1].backdrop_path || ""
             )}
           >
-            <Title>{nowplayingDataTv?.results[0].name}</Title>
-            <Overview>{nowplayingDataTv?.results[0].overview}</Overview>
+            <Title>{nowplayingDataTv?.results[1].name}</Title>
+            <Overview>{nowplayingDataTv?.results[1].overview}</Overview>
             <BannerButton>상세정보</BannerButton>
           </Banner>
           <Sliders>

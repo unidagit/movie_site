@@ -40,7 +40,7 @@ function TvCard() {
               />
               <MovieInfoBox>
                 <TitleBox>
-                  <MovieTitle>{tvDetail.title}</MovieTitle>
+                  <MovieTitle>{tvDetail.name}</MovieTitle>
                   <MovieTitleList>
                     <MovieRelase>
                       {tvDetail.first_air_date.substr(0, 4)}
