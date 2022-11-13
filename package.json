@@ -37,7 +37,7 @@
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
   },
-  "homepage": "https://unidagit.github.io/movie_site/",
+  "homepage": "https://unidagit.github.io/movie_site/index.html",
   "eslintConfig": {
     "extends": [
       "react-app",
