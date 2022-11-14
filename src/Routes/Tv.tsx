@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {
   getAiringTodayTv,
@@ -6,6 +7,7 @@ import {
   getTopRatedShows,
   IGetTvResult,
 } from "../api";
+import Footer from "../Components/Footer";
 import TvSlider from "../Components/TvSlider";
 import { makeImagePath } from "../utils";
 
@@ -27,13 +29,11 @@ function Tv() {
       ) : (
         <>
           <Banner
-            bgPhoto={makeImagePath(
-              nowplayingDataTv?.results[1].backdrop_path || ""
-            )}
+            bgPhoto={makeImagePath(popularTv?.results[2].backdrop_path || "")}
           >
-            <Title>{nowplayingDataTv?.results[1].name}</Title>
-            <Overview>{nowplayingDataTv?.results[1].overview}</Overview>
-            <BannerButton>상세정보</BannerButton>
+            <Title>{popularTv?.results[4].name}</Title>
+            <Overview>{popularTv?.results[4].overview}</Overview>
+            {/* <BannerButton>상세정보</BannerButton> */}
           </Banner>
           <Sliders>
             <TvSlider data={nowplayingDataTv?.results} title="현재상영작" />
@@ -43,6 +43,7 @@ function Tv() {
             />
             <TvSlider data={popularTv?.results} title="인기순위 영화" />
           </Sliders>
+          <Footer />
         </>
       )}
     </Wrapper>
@@ -87,20 +88,20 @@ const Overview = styled.p`
   word-break: keep-all;
 `;
 
-const BannerButton = styled.button`
-  width: 150px;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  font-weight: 400;
-  border-radius: 0.75rem;
-  background-color: #505257;
-  margin-top: 20px;
-  cursor: pointer;
-  color: ${(props) => props.theme.white.lighter};
-  &:hover {
-    background-color: #434344;
-  }
-`;
+// const BannerButton = styled.button`
+//   width: 150px;
+//   padding: 0.75rem 1rem;
+//   font-size: 1rem;
+//   font-weight: 400;
+//   border-radius: 0.75rem;
+//   background-color: #505257;
+//   margin-top: 20px;
+//   cursor: pointer;
+//   color: ${(props) => props.theme.white.lighter};
+//   &:hover {
+//     background-color: #434344;
+//   }
+// `;
 
 const Sliders = styled.div`
   /* left: 0; */
