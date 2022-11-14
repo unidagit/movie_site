@@ -14,6 +14,7 @@ const Nav = styled(motion.nav)`
   font-size: 14px;
   padding: 20px 60px;
   color: white;
+  min-width: 729px;
 `;
 
 const Col = styled.div`
@@ -25,6 +26,7 @@ const Logo = styled(motion.svg)`
   margin-right: 50px;
   width: 95px;
   height: 25px;
+  cursor: pointer;
   fill: ${(props) => props.theme.red};
 `;
 
@@ -107,9 +109,10 @@ interface IForm {
 }
 
 function Header() {
-  const [searchOpen, setSearchOpen] = useState(true);
+  const [searchOpen, setSearchOpen] = useState(false);
   const homeMatch = useMatch("/");
   const tvMatch = useMatch("/tv");
+  const searchMatch = useMatch("/search");
   const inputAnimation = useAnimation();
   const navAnimation = useAnimation();
   const { scrollY } = useScroll();
@@ -139,10 +142,15 @@ function Header() {
     });
   }, [scrollY, navAnimation]);
 
+  const onClickLogo = () => {
+    navigate("/");
+  };
+
   return (
     <Nav variants={navVariants} animate={navAnimation} initial={"top"}>
       <Col>
         <Logo
+          onClick={onClickLogo}
           variants={logoVariants}
           whileHover="active"
           initial="normal"
@@ -160,6 +168,11 @@ function Header() {
           <Item>
             <Link to="/tv">
               Tv Shows {tvMatch && <Circle layoutId="circle" />}
+            </Link>
+          </Item>
+          <Item>
+            <Link to="/search">
+              Search {searchMatch && <Circle layoutId="circle" />}
             </Link>
           </Item>
         </Items>
@@ -185,6 +198,7 @@ function Header() {
             animate={inputAnimation}
             placeholder=" 검색해보세요"
             transition={{ type: "liner" }}
+            initial={{ scaleX: 0 }}
           />
           {/* searchOpen이 열려있다면, 비율을 1로 아니면 0으로 */}
         </Search>
