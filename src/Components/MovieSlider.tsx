@@ -63,7 +63,7 @@ function MovieSlider({ data, title }: ISlider) {
       toggleLeaving();
       setIsBack(false);
       const totalMovies = data.length;
-      const maxIndex = Math.ceil(totalMovies / offset) - 1;
+      const maxIndex = Math.floor(totalMovies / offset) - 1;
       setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
     }
   };
