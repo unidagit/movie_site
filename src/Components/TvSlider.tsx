@@ -63,7 +63,7 @@ function TvSlider({ data, title }: ISlider) {
       toggleLeaving();
       setIsBack(false);
       const totalTvs = data.length;
-      const maxIndex = Math.ceil(totalTvs / offset) - 1;
+      const maxIndex = Math.floor(totalTvs / offset) - 1;
       setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
     }
   };
