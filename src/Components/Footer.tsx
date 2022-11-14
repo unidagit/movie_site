@@ -109,6 +109,7 @@ const Wrapper = styled.div`
   max-width: 980px;
   padding: 0 50px;
   color: ${(props) => props.theme.white.darker};
+  min-width: 454px;
 `;
 
 const SocialBox = styled.ul`
