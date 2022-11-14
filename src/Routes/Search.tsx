@@ -33,41 +33,43 @@ function Search() {
 
   return (
     <Wrapper>
-      <>
-        <Category>{keyword}에 대한 영화 검색 결과</Category>
-        {isMovieLoading || !searchMovie ? (
-          <Loader>Loading...</Loader>
-        ) : searchMovie?.results.length === 0 ? (
-          <Loader>검색 결과가 없습니다.</Loader>
-        ) : (
-          <SearchBox>
-            {searchMovie?.results.map((movie) => (
-              <Box
-                bgphoto={makeImagePath(movie.backdrop_path, "w500")}
-                key={"movie" + movie.id}
-              />
-            ))}
-          </SearchBox>
-        )}
-      </>
+      {!keyword ? (
+        <Loader>검색창에 영화를 입력해주세요.</Loader>
+      ) : (
+        <>
+          <Category>{keyword}에 대한 영화 검색 결과</Category>
+          {isMovieLoading || !searchMovie ? (
+            <Loader>Loading...</Loader>
+          ) : searchMovie?.results.length === 0 ? (
+            <Loader>검색 결과가 없습니다.</Loader>
+          ) : (
+            <SearchBox>
+              {searchMovie?.results.map((movie) => (
+                <Box
+                  bgphoto={makeImagePath(movie.backdrop_path, "w500")}
+                  key={"movie" + movie.id}
+                />
+              ))}
+            </SearchBox>
+          )}
 
-      <>
-        <Category>{keyword}에 대한 Tv Shows 검색 결과</Category>
-        {isTvLoading || !searchTv ? (
-          <Loader>Loading...</Loader>
-        ) : searchTv?.results.length === 0 ? (
-          <Loader>검색 결과가 없습니다.</Loader>
-        ) : (
-          <SearchBox>
-            {searchTv?.results.map((tv) => (
-              <Box
-                bgphoto={makeImagePath(tv.backdrop_path, "w500")}
-                key={"movie" + tv.id}
-              />
-            ))}
-          </SearchBox>
-        )}
-      </>
+          <Category>{keyword}에 대한 Tv Shows 검색 결과</Category>
+          {isTvLoading || !searchTv ? (
+            <Loader>Loading...</Loader>
+          ) : searchTv?.results.length === 0 ? (
+            <Loader>검색 결과가 없습니다.</Loader>
+          ) : (
+            <SearchBox>
+              {searchTv?.results.map((tv) => (
+                <Box
+                  bgphoto={makeImagePath(tv.backdrop_path, "w500")}
+                  key={"movie" + tv.id}
+                />
+              ))}
+            </SearchBox>
+          )}
+        </>
+      )}
     </Wrapper>
   );
 }
