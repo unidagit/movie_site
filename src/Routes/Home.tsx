@@ -6,6 +6,7 @@ import {
   IGetMovieResult,
   getTopRated,
 } from "../api";
+import Footer from "../Components/Footer";
 import MovieSlider from "../Components/MovieSlider";
 import { makeImagePath } from "../utils";
 
@@ -33,7 +34,7 @@ function Home() {
           >
             <Title>{nowplayingData?.results[2].title}</Title>
             <Overview>{nowplayingData?.results[2].overview}</Overview>
-            <BannerButton>상세정보</BannerButton>
+            {/* <BannerButton>상세정보</BannerButton> */}
           </Banner>
           <Sliders>
             <MovieSlider data={nowplayingData?.results} title="현재상영작" />
@@ -43,6 +44,7 @@ function Home() {
             />
             <MovieSlider data={topRated?.results} title="인기순위 영화" />
           </Sliders>
+          <Footer />
         </>
       )}
     </Wrapper>
@@ -52,6 +54,7 @@ function Home() {
 export default Home;
 
 const Wrapper = styled.div`
+  /* overflow: auto; */
   background-color: black;
 `;
 
@@ -87,20 +90,20 @@ const Overview = styled.p`
   word-break: keep-all;
 `;
 
-const BannerButton = styled.button`
-  width: 150px;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  font-weight: 400;
-  border-radius: 0.75rem;
-  background-color: #505257;
-  margin-top: 20px;
-  cursor: pointer;
-  color: ${(props) => props.theme.white.lighter};
-  &:hover {
-    background-color: #434344;
-  }
-`;
+// const BannerButton = styled.button`
+//   width: 150px;
+//   padding: 0.75rem 1rem;
+//   font-size: 1rem;
+//   font-weight: 400;
+//   border-radius: 0.75rem;
+//   background-color: #505257;
+//   margin-top: 20px;
+//   cursor: pointer;
+//   color: ${(props) => props.theme.white.lighter};
+//   &:hover {
+//     background-color: #434344;
+//   }
+// `;
 
 const Sliders = styled.div`
   /* left: 0; */
