@@ -32,7 +32,6 @@ function MovieCard() {
               if (e.target === outside.current) navigate(`/`);
             }}
           >
-            <CloseButton onClick={onOverlayClick}>x</CloseButton>
             <MovieDetailCard
               style={{ top: 100 }}
               // layoutId={bigMovieMatch?.params.movieId}
@@ -46,6 +45,14 @@ function MovieCard() {
                   )})`,
                 }}
               />
+              <CloseButton onClick={onOverlayClick}>
+                <CloseIcon
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z" />
+                </CloseIcon>
+              </CloseButton>
               <MovieInfoBox>
                 <TitleBox>
                   <MovieTitle>{movieDetail.title}</MovieTitle>
@@ -123,6 +130,25 @@ const MovieCoverImage = styled.div`
   /* object-fit: cover; */
   background-size: cover;
   background-position: center center;
+  position: relative;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 15px;
+  right: 8px;
+  border-radius: 0.5rem;
+  z-index: 1;
+  color: ${(props) => props.theme.white.lighter};
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+`;
+
+const CloseIcon = styled.svg`
+  height: 30px;
+  fill: ${(props) => props.theme.black};
 `;
 
 const MovieInfoBox = styled.div`
@@ -200,8 +226,4 @@ const Overlay = styled(motion.div)`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
-`;
-
-const CloseButton = styled.button`
-  width: 10px;
 `;
