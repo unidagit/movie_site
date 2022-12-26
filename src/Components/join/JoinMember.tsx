@@ -21,6 +21,10 @@ interface IFormValue {
   passwordConfirm: string;
 }
 
+export interface IMessage {
+  message: string;
+}
+
 function JoinMember({ setNextPage, setUserInfo }: INext) {
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
 
@@ -40,10 +44,6 @@ function JoinMember({ setNextPage, setUserInfo }: INext) {
   // type IMessage = {
   //   message: string;
   // };
-
-  interface IMessage {
-    message: string;
-  }
 
   const getEmailValid = async () => {
     const config = {
