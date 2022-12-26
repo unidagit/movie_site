@@ -27,7 +27,7 @@ const Logo = styled(motion.svg)`
   width: 95px;
   height: 25px;
   cursor: pointer;
-  fill: ${(props) => props.theme.red};
+  fill: ${(props) => props.theme.red.basic};
 `;
 
 const Items = styled.ul`
@@ -67,7 +67,7 @@ const Circle = styled(motion.span)`
   left: 0;
   right: 0;
   margin: 0 auto;
-  background-color: ${(props) => props.theme.red};
+  background-color: ${(props) => props.theme.red.basic};
 `;
 
 const Input = styled(motion.input)`
