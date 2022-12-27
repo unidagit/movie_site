@@ -11,6 +11,7 @@ import {
 import { makeImagePath } from "../utils";
 import { motion } from "framer-motion";
 import SearchCard from "../Components/SearchCard";
+import Header from "../Components/Header";
 
 function Search() {
   //1.keyword에 접근한다 -> keyword를 가지고 검색을 해야하니까
@@ -54,6 +55,7 @@ function Search() {
 
   return (
     <Wrapper>
+      <Header />
       {!keyword ? (
         <Loader>검색창에 영화를 입력해주세요.</Loader>
       ) : (
@@ -105,7 +107,7 @@ function Search() {
 export default Search;
 
 const Wrapper = styled.div`
-  padding: 100px 60px;
+  /* padding: 100px 60px; */
 `;
 
 const Loader = styled.div`
