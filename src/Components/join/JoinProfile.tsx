@@ -257,6 +257,7 @@ const SignProfileFormBox = styled.section`
 const SignProfileImgContainer = styled.div`
   font-size: 0.8rem;
   margin-bottom: 20px;
+  position: relative;
 `;
 
 const SignProfileInput = styled.input`
@@ -270,7 +271,6 @@ const SignProfileInput = styled.input`
 `;
 
 const SignProfileImage = styled.img`
-  position: relative;
   margin: 0 auto;
   width: 110px;
   height: 110px;
@@ -299,8 +299,8 @@ const SignProfileInputButton = styled.img.attrs({
   alt: "이미지 업로드",
 })`
   position: absolute;
-  top: 290px;
-  right: 350px;
+  top: -30px;
+  right: 90px;
   width: 40px;
 `;
 
