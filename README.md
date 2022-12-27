@@ -3,6 +3,9 @@
 ## 배포 URL
 
 - URL : https://movie-site-inky.vercel.app/
+- 계정
+  - `ID`: unida593@naver.com
+  - `PassWord`: 123456
 
 <br>
 
@@ -62,7 +65,7 @@ https://www.notion.so/94648fb5e750458baa9e3e87a2da3ede
 
 ## ⚒ 추가 구현 사항
 
-- 로그인 구현 예정
+- 로그인 구현 완료
 
 <br>
 
