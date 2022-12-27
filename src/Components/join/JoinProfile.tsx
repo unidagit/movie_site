@@ -256,7 +256,7 @@ const SignProfileFormBox = styled.section`
 
 const SignProfileImgContainer = styled.div`
   font-size: 0.8rem;
-  margin: 0 auto;
+  margin-bottom: 20px;
 `;
 
 const SignProfileInput = styled.input`
@@ -270,9 +270,11 @@ const SignProfileInput = styled.input`
 `;
 
 const SignProfileImage = styled.img`
+  position: relative;
+  margin: 0 auto;
   width: 110px;
   height: 110px;
-  border-radius: 50%;
+  border-radius: 10%;
   object-fit: cover;
   background-color: white;
 `;
@@ -295,7 +297,12 @@ const SignFormInput = styled.input`
 const SignProfileInputButton = styled.img.attrs({
   src: fileUploadButton,
   alt: "이미지 업로드",
-})``;
+})`
+  position: absolute;
+  top: 290px;
+  right: 350px;
+  width: 40px;
+`;
 
 const ErrorMessage = styled.strong`
   display: block;
