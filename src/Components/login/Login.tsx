@@ -112,10 +112,10 @@ function Login() {
             </LoginFormLabel>
             <LoginFormBtn disabled={!isValid}>로그인</LoginFormBtn>
           </LoginFormBox>
+          <JoinLink>
+            <Link to="/signUp">이메일로 회원가입</Link>
+          </JoinLink>
         </LoginForm>
-        <JoinLink>
-          <Link to="/signUp">이메일로 회원가입</Link>
-        </JoinLink>
       </LoginContainer>
     </>
   );
@@ -177,7 +177,7 @@ const LoginFormBtn = styled.button`
   border-radius: 4px;
   font-size: 16px;
   color: ${(props) => props.theme.white.lighter};
-  margin: 24px 0px 12px;
+  margin: 24px 0px 15px;
   padding: 16px;
   cursor: pointer;
   background-color: ${(props) => props.theme.red.basic};
@@ -194,11 +194,12 @@ const LoginFormBtn = styled.button`
 `;
 
 const JoinLink = styled.button`
+  /* display: block; */
   width: 100%;
   border-radius: 4px;
   font-size: 16px;
   color: ${(props) => props.theme.white.lighter};
-  margin: 24px 0px 12px;
+  /* margin: 24px 0px 12px; */
   padding: 16px;
   cursor: pointer;
   background-color: ${(props) => props.theme.red.lighter};
