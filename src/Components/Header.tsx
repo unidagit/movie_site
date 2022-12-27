@@ -3,6 +3,8 @@ import { motion, useAnimation, useScroll } from "framer-motion";
 import { Link, useMatch, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import basicProfile from "../../src/assets/basic-profile-img-.svg";
 
 const Nav = styled(motion.nav)`
   display: flex;
@@ -46,6 +48,16 @@ const Item = styled.li`
   &:hover {
     color: ${(props) => props.theme.white.lighter};
   }
+`;
+
+const ProfileImg = styled.img`
+  margin-right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10%;
+  object-fit: cover;
+  margin-left: 10px;
+  background-color: ${(props) => props.theme.white.lighter};
 `;
 
 const Search = styled.form`
@@ -122,6 +134,40 @@ function Header() {
     navigate(`/search?keyword=${data.keyword}`);
   };
 
+  const [authorImg, setAuthorImg] = useState("");
+  const [userToken, setUserToken] = useState("");
+  const [accountName, setAccountName] = useState("");
+
+  console.log(authorImg);
+
+  //토큰 가져오기
+  useEffect(() => {
+    setUserToken(JSON.parse(`${localStorage.getItem("token")}`));
+    setAccountName(JSON.parse(`${localStorage.getItem("accoutname")}`));
+  }, []);
+
+  console.log(userToken);
+
+  useEffect(() => {
+    if (accountName) {
+      axios({
+        url: `https://mandarin.api.weniv.co.kr/profile/${accountName}`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          "Content-type": "application/json",
+        },
+      })
+        .then((response) => {
+          setAuthorImg(response.data.profile.image);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [accountName, userToken]);
+
   const toggleSearch = () => {
     if (searchOpen) {
       inputAnimation.start({
@@ -163,7 +209,9 @@ function Header() {
         </Logo>
         <Items>
           <Item>
-            <Link to="/">Home {homeMatch && <Circle layoutId="circle" />}</Link>
+            <Link to="/home">
+              Home {homeMatch && <Circle layoutId="circle" />}
+            </Link>
           </Item>
           <Item>
             <Link to="/tv">
@@ -202,6 +250,7 @@ function Header() {
           />
           {/* searchOpen이 열려있다면, 비율을 1로 아니면 0으로 */}
         </Search>
+        <ProfileImg src={authorImg || basicProfile} />
       </Col>
     </Nav>
   );
