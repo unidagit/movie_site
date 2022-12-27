@@ -8,6 +8,7 @@ import {
   IGetTvResult,
 } from "../api";
 import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 import TvSlider from "../Components/TvSlider";
 import { makeImagePath } from "../utils";
 
@@ -24,6 +25,7 @@ function Tv() {
 
   return (
     <Wrapper>
+      <Header />
       {isNowplayingLoadingaTv || isTopRatedLoadingaTv || isPopularLoadingTv ? (
         <Loader>loading...</Loader>
       ) : (
