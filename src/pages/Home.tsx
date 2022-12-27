@@ -7,6 +7,7 @@ import {
   getTopRated,
 } from "../api";
 import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 import MovieSlider from "../Components/MovieSlider";
 import { makeImagePath } from "../utils";
 
@@ -23,6 +24,7 @@ function Home() {
 
   return (
     <Wrapper>
+      <Header />
       {isNowplayingLoading || isPopularLoading || isTopRatedLoading ? (
         <Loader>loading...</Loader>
       ) : (
