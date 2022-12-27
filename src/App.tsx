@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./Components/Header";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Tv from "./pages/Tv";
@@ -8,32 +7,17 @@ import Error from "./pages/Error";
 import SignUp from "./pages/SignUp";
 import Login from "./Components/login/Login";
 import { PrivateRoute } from "./Route";
-import { PublicRoute } from "./Route";
+// import { PublicRoute } from "./Route";
 import Init from "./pages/Init";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         {/* public page */}
         <Route path="/" element={<Init />}></Route>
-        <Route
-          path="/signUp"
-          element={
-            <PublicRoute>
-              <SignUp />
-            </PublicRoute>
-          }
-        ></Route>
-        <Route
-          path="/login"
-          element={
-            <PublicRoute>
-              <Login />
-            </PublicRoute>
-          }
-        ></Route>
+        <Route path="/signUp" element={<SignUp />}></Route>
+        <Route path="/login" element={<Login />}></Route>
 
         {/* private page */}
         <Route
