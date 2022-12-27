@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../constants/defaultUrl";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
@@ -43,7 +44,7 @@ function Login() {
           JSON.stringify(response.data.user.accountname)
         );
         localStorage.setItem("token", JSON.stringify(response.data.user.token));
-        navigate("/");
+        navigate("/home");
       }
     } catch {
       console.log("error");
@@ -109,10 +110,12 @@ function Login() {
                 <ErrorMessage>{emailErrorMessage}</ErrorMessage>
               )}
             </LoginFormLabel>
-
-            <LoginFormBtn disabled={!isValid}>다음</LoginFormBtn>
+            <LoginFormBtn disabled={!isValid}>로그인</LoginFormBtn>
           </LoginFormBox>
         </LoginForm>
+        <JoinLink>
+          <Link to="/signUp">이메일로 회원가입</Link>
+        </JoinLink>
       </LoginContainer>
     </>
   );
@@ -178,6 +181,27 @@ const LoginFormBtn = styled.button`
   padding: 16px;
   cursor: pointer;
   background-color: ${(props) => props.theme.red.basic};
+  border: none;
+
+  &:hover {
+    background-color: #9c151c;
+  }
+
+  :disabled {
+    background-color: ${(props) => props.theme.red.lighter};
+    border: none;
+  }
+`;
+
+const JoinLink = styled.button`
+  width: 100%;
+  border-radius: 4px;
+  font-size: 16px;
+  color: ${(props) => props.theme.white.lighter};
+  margin: 24px 0px 12px;
+  padding: 16px;
+  cursor: pointer;
+  background-color: ${(props) => props.theme.red.lighter};
   border: none;
 
   &:hover {
