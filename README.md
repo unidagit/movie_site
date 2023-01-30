@@ -2,7 +2,7 @@
 
 ## 배포 URL
 
-- URL : https://movie-site-inky.vercel.app/
+- URL : https://movie-site-xw2k.vercel.app
 - 계정
   - `ID`: unida593@naver.com
   - `PassWord`: 123456
